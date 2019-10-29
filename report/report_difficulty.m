@@ -16,6 +16,7 @@ function [document, scores] = report_difficulty(context, experiment, trackers, s
 % Output:
 % - document (structure): Resulting document structure.
 %
+experiment = cell2mat(experiment);
 
 usetags = true;
 usepractical = true;
@@ -37,7 +38,7 @@ for i = 1:2:length(varargin)
     end
 end
 
-document = create_document(context, 'difficulty', 'title', 'Difficulty');
+document = document_create(context, 'difficulty', 'title', 'Difficulty');
 
 trackers_hash = md5hash(strjoin((cellfun(@(x) x.identifier, trackers, 'UniformOutput', false)), '-'), 'Char', 'hex');
 parameters_hash = md5hash(sprintf('%f-%d-%d-%s', alpha, usetags, usepractical, adaptation));

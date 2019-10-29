@@ -15,7 +15,7 @@ function [document, scores] = report_failures(context, experiment, trackers, seq
 
 scores = [];
 
-document = create_document(context, 'failures', 'title', 'Failure overview');
+document = document_create(context, 'failures', 'title', 'Failure overview');
 
 for i = 1:2:length(varargin)
     switch lower(varargin{i})
