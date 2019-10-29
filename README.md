@@ -35,3 +35,13 @@ Enquiries, Question and Comments
 --------------------------------
 
 If you have any further enquiries, question, or comments, please refer to the contact infromation link on the [VOT homepage](http://votchallenge.net/). If you would like to file a bug report or a feature request, use the  [Github issue tracker](https://github.com/vicoslab/vot-toolkit/issues). **The issue tracker is for toolkit issues only**, if you have a problem with tracker integration or any other questions, please use our [support forum](https://groups.google.com/forum/?hl=en#!forum/votchallenge-help).
+
+Things to do after opening Octave
+--------
+1) Enter to the workspace directory inside vot-toolkit and try to run the script: run_test.m even without specifying the tracker settings.
+2) Use these two commands for loading some MATLAB commands that exist in different packages of Octave:
+    * pkg load image
+    * pkg load statistics
+3) If you encounter ... error when analyzing the trackers due to experiment argument, convert experiment to mat format by adding the following line to the top of the function:
+    experiment = cell2mat(experiment); 
+#TODO: @analyze_failures used in report_failures.m creating some sort of a problem, will be examined later. 
