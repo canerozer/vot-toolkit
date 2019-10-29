@@ -12,6 +12,9 @@ function [document, scores] = report_failures(context, experiment, trackers, seq
 % Output:
 % - document (structure): Resulting document structure.
 %
+if is_octave
+    experiment = cell2mat(experiment);
+end
 
 scores = [];
 
@@ -35,7 +38,7 @@ end
 
 cache_identifier = sprintf('failures_%s_%s_%s.mat', experiment.name, trackers_hash, sequences_hash);
 
-histograms = report_cache(context, cache_identifier, @analyze_failures, ...
+histograms = document_cache(context, cache_identifier, @analyze_failures, ...
     experiment, trackers, sequences);
 
 document.subsection('Experiment %s', experiment.name);

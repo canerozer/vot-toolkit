@@ -16,7 +16,9 @@ function [document, scores] = report_difficulty(context, experiment, trackers, s
 % Output:
 % - document (structure): Resulting document structure.
 %
-experiment = cell2mat(experiment);
+if is_octave
+    experiment = cell2mat(experiment);
+end
 
 usetags = true;
 usepractical = true;
